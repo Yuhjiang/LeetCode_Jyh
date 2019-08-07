@@ -19,9 +19,3 @@ class Solution(object):
                 num_dict[num] = i
         return None
 
-
-nums = [3, 3, 11, 15]
-target = 6
-s = Solution()
-print(s.twoSum(nums, target))
-print()
