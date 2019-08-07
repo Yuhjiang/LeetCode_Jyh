@@ -18,3 +18,4 @@ class Solution(object):
             else:
                 num_dict[num] = i
         return None
+
