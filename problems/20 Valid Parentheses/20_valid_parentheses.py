@@ -6,22 +6,20 @@
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        stack = []
-        valid_brackets = [('(', ')'), ('{', '}'), ('[', ']')]
+        stack = ['*']
+        valid_brackets = {'(': ')', '{': '}', '[': ']', '*': '*'}
         for char in s:
-            if not stack:
+            if char in valid_brackets:
                 stack.append(char)
-                continue
-
-            if (stack[-1], char) in valid_brackets:
-                stack = stack[:-1]
             else:
-                stack.append(char)
-        return stack == []
+                c = stack.pop()
+                if char != valid_brackets[c]:
+                    return False
+        return len(stack) == 1
 
 
 if __name__ == '__main__':
-    test = ["()", "()[]{}", "(]", "([)]", "{[]}", '[]']
+    test = ["()", "()[]{}", "(]", "([)]", "{[]}", '[]', ']']
     s = Solution()
 
     for t in test:
