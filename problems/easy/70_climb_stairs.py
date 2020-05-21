@@ -17,8 +17,21 @@ class Solution:
         return dp[n]
 
 
+class newSolution:
+    def climbStairs(self, n: int) -> int:
+        dp = [0] * (n + 1)
+        dp[0] = 1
+        for i in range(1, n+1):
+            if i > 0:
+                dp[i] += dp[i-1]
+            if i > 1:
+                dp[i] += dp[i-2]
+
+        return dp[n]
+
+
 if __name__ == '__main__':
-    s = Solution()
-    print(s.climbStairs(3))
+    s = newSolution()
+    print(s.climbStairs(44))
     print(s.climbStairs(2))
     print(s.climbStairs(1))

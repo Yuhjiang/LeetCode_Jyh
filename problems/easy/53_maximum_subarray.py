@@ -45,8 +45,19 @@ class DivideSolution:
         return left_max_sum + nums[mid] + right_max_sum
 
 
+class newSolution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        last = nums[0]
+        max_res = last
+        for num in nums[1:]:
+            last = last + num if last + num > num else num
+            max_res = max_res if max_res > last else last
+
+        return max_res
+
+
 if __name__ == '__main__':
-    s = DivideSolution()
+    s = newSolution()
     print(s.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
     # print(s.maxSubArray([-2, -3, -1]))
     print(s.maxSubArray([1, 2]))
