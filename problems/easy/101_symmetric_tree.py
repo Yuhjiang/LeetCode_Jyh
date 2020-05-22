@@ -30,8 +30,8 @@ class QueueSolution:
         q = [root, root]
 
         while q:
-            left = q.pop()
-            right = q.pop()
+            left = q.pop(0)
+            right = q.pop(0)
             if (left and not right) or (not left and right):
                 return False
             if not (left or right):
@@ -42,6 +42,38 @@ class QueueSolution:
             q.append(right.right)
             q.append(left.right)
             q.append(right.right)
+        return True
+
+
+class NewSolution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        return self.is_mirror(root, root)
+
+    def is_mirror(self, t1, t2):
+        if not (t1 or t2):
+            return True
+        elif not (t1 and t2):
+            return False
+        else:
+            return t1.val == t2.val and self.is_mirror(t1.left, t2.right) and self.is_mirror(t1.right, t2.left)
+
+
+class NewQueueSolution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        queue = [(root.left, root.right)]
+
+        while queue:
+            t1, t2 = queue.pop()
+            if (t1 and not t2) or (not t1 and t2):
+                return False
+            if t1 and t2:
+                if t1.val != t2.val:
+                    return False
+                queue.append((t1.left, t2.right))
+                queue.append((t1.right, t2.left))
+
         return True
 
 
