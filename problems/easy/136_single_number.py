@@ -26,7 +26,16 @@ class HashSolution:
         return list(nums_dict.keys())[0]
 
 
+class NewSolution:
+    def singleNumber(self, nums: List[int]) -> int:
+        num = nums[0]
+        for i in nums[1:]:
+            num = num ^ i
+
+        return num
+
+
 if __name__ == '__main__':
-    s = HashSolution()
+    s = NewSolution()
     print(s.singleNumber([2,2,1]))
     print(s.singleNumber([4,1,2,1,2]))

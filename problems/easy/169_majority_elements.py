@@ -1,15 +1,12 @@
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        nums_dict = {}
-
+        nums_dict = defaultdict(int)
         for n in nums:
-            if n not in nums_dict:
-                nums_dict[n] = 1
-            else:
-                nums_dict[n] += 1
+            nums_dict[n] += 1
 
         max_k, max_v = None, None
         for k, v in nums_dict.items():
@@ -19,6 +16,18 @@ class Solution:
         return max_k
 
 
+class NewSolution:
+    def majorityElement(self, nums: List[int]) -> int:
+        candidate = 0
+        count = 0
+
+        for i in nums:
+            if not count:
+                candidate = i
+            count += 1 if candidate == i else -1
+        return candidate
+
+
 if __name__ == '__main__':
-    s = Solution()
-    print(s.majorityElement([2,2,1,1,1,2,2]))
+    s = NewSolution()
+    print(s.majorityElement([3, 2, 3]))

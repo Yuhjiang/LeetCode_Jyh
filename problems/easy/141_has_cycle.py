@@ -28,6 +28,25 @@ class Solution:
         return False
 
 
+class NewSolution:
+    def hasCycle(self, head: ListNode) -> bool:
+        fast = head
+        if not fast or not fast.next:
+            return False
+        else:
+            fast = fast.next.next
+        slow = head.next
+
+        while slow or fast:
+            if fast == slow:
+                return True
+            fast = fast.next
+            slow = slow.next
+            if fast:
+                fast = fast.next
+        return False
+
+
 if __name__ == '__main__':
-    s = Solution()
-    # s.hasCycle()
+    from utils import create_list, print_tree
+    create_list([3,2,0,-4])

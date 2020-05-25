@@ -38,6 +38,31 @@ class Solution:
         return None
 
 
+class NewSolution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        node_a, node_b = headA, headB
+        while node_a and node_b:
+            node_a = node_a.next
+            node_b = node_b.next
+        if node_a:
+            node_b = headA
+            while node_a:
+                node_b = node_b.next
+                node_a = node_a.next
+            node_a = headB
+        else:
+            node_a = headB
+            while node_b:
+                node_a = node_a.next
+                node_b = node_b.next
+            node_b = headA
+        while node_a:
+            if node_a == node_b:
+                return node_a
+            node_a = node_a.next
+            node_b = node_b.next
+
+
 if __name__ == '__main__':
     a = ListNode(4)
     temp = a
