@@ -55,7 +55,8 @@ class NewSolution:
         elif not (t1 and t2):
             return False
         else:
-            return t1.val == t2.val and self.is_mirror(t1.left, t2.right) and self.is_mirror(t1.right, t2.left)
+            return t1.val == t2.val and self.is_mirror(t1.left, t2.right) \
+                   and self.is_mirror(t1.right, t2.left)
 
 
 class NewQueueSolution:
@@ -65,7 +66,7 @@ class NewQueueSolution:
         queue = [(root.left, root.right)]
 
         while queue:
-            t1, t2 = queue.pop()
+            t1, t2 = queue.pop(0)
             if (t1 and not t2) or (not t1 and t2):
                 return False
             if t1 and t2:

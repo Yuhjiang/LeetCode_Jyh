@@ -28,7 +28,19 @@ class Solution:
             self.preorder(root.right)
 
 
+class NewSolution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return None
+        left = self.invertTree(root.left)
+        right = self.invertTree(root.right)
+        root.left, root.right = right, left
+
+        return root
+
+
 if __name__ == '__main__':
+    from utils import print_tree
     root = TreeNode(4)
     root.left = TreeNode(2)
     root.right = TreeNode(7)
@@ -37,6 +49,7 @@ if __name__ == '__main__':
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(9)
 
-    s = Solution()
-    s.preorder(s.invertTree(root))
+    s = NewSolution()
+    s.invertTree(root)
 
+    print_tree(root)

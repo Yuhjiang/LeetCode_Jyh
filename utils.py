@@ -56,7 +56,7 @@ def print_tree(root: TreeNode):
     queue = [root]
 
     while queue:
-        tmp = queue.pop()
+        tmp = queue.pop(0)
         if tmp:
             print(tmp.val, end=' ')
         else:

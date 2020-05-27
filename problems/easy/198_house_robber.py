@@ -27,6 +27,21 @@ class Solution:
             dp[i] = nums[i]
 
 
+class NewSolution:
+    def rob(self, nums: List[int]) -> int:
+        length = len(nums)
+        if not length:
+            return 0
+        dp = nums[:]
+        for i in range(length):
+            if i >= 1:
+                dp[i] = dp[i-1] if dp[i-1] > dp[i] else dp[i]
+            if i >= 2:
+                dp[i] = dp[i-2] + nums[i] if dp[i-2] + nums[i] > dp[i] else dp[i]
+
+        return dp[length-1] if dp[length-1] > dp[length-2] else dp[length-2]
+
+
 if __name__ == '__main__':
     s = Solution()
-    print(s.rob([1]))
+    print(s.rob([2,7,9,3,1]))

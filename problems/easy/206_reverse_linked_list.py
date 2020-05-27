@@ -23,18 +23,20 @@ class Solution:
         return new_head
 
 
-def print_list(node):
-    while node:
-        print(node.val, end=' ')
-        node = node.next
+class NewSolution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        last = None
+        while head:
+            curr = head
+            head = head.next
+            curr.next = last
+            last = curr
+        return last
 
 
 if __name__ == '__main__':
-    head = ListNode(1)
-    temp = head
-    for i in [2, 3, 4, 5]:
-        temp.next = ListNode(i)
-        temp = temp.next
+    from utils import print_list, create_list
+    head = create_list([1, 2, 3, 4, 5])
 
-    s = Solution()
+    s = NewSolution()
     print_list(s.reverseList(head))
