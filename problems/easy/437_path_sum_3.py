@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -34,6 +37,29 @@ class Solution:
         exists_sum[current_sum] -= 1
 
 
+class NewSolution:
+    def pathSum(self, root: TreeNode, sum: int) -> int:
+        self.memo = defaultdict(int)
+        self.memo[0] = 1
+        self.count = 0
+        last = 0
+
+        self.dfs(root, sum, last)
+        return self.count
+
+    def dfs(self, root: TreeNode, sum: int, last):
+        if not root:
+            return None
+        last += root.val
+        if last - sum in self.memo:
+            self.count += self.memo[last-sum]
+        self.memo[last] += 1
+
+        self.dfs(root.left, sum, last)
+        self.dfs(root.right, sum, last)
+        self.memo[last] -= 1
+
+
 if __name__ == '__main__':
     root = TreeNode(10)
     root.left = TreeNode(5)
@@ -44,5 +70,5 @@ if __name__ == '__main__':
     root.left.left.right = TreeNode(2)
     root.left.right.right = TreeNode(1)
     root.right.right = TreeNode(11)
-    s = Solution()
+    s = NewSolution()
     print(s.pathSum(root, 8))

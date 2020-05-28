@@ -44,8 +44,34 @@ class SolutionReverseList:
         return True
 
 
+class NewSolution:
+    def isPalindrome(self, head: ListNode) -> bool:
+        if not head or not head.next:
+            return True
+        slow, fast = head, head
+
+        last = None
+        while fast and fast.next:
+            fast = fast.next.next
+
+            temp = slow
+            slow = slow.next
+            temp.next = last
+            last = temp
+
+        if fast:
+            slow = slow.next
+
+        while last and slow:
+            if last.val != slow.val:
+                return False
+            last = last.next
+            slow = slow.next
+        return True
+
+
 if __name__ == '__main__':
-    s = SolutionReverseList()
+    s = NewSolution()
     node = ListNode(1)
     node.next = ListNode(2)
     node.next.next = ListNode(1)
