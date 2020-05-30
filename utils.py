@@ -15,6 +15,8 @@ def print_list(list_node):
 
 
 def create_list(nodes):
+    if not nodes:
+        return None
     t = ListNode(nodes[0])
     temp = t
     for i in nodes:
