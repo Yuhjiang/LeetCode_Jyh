@@ -49,7 +49,6 @@ class NewSolution:
         mid = (left + right) // 2
         return self.merge_town_lists(self.merge(lists, left, mid), self.merge(lists, mid+1, right))
 
-
     def merge_town_lists(self, l1: ListNode, l2: ListNode):
         if not (l1 and l2):
             return l1 if l1 else l2
