@@ -48,5 +48,6 @@ class NewSolution:
 
 
 if __name__ == '__main__':
-    from utils import create_list, print_tree
+    from problems.utils import create_list
+
     create_list([3,2,0,-4])

@@ -28,7 +28,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import create_tree, print_tree
+    from problems.utils import create_tree, print_tree
     ro = create_tree([1, 2, 5, 3, 4, None, 6, None, None, None, None, None, None])
     Solution().flatten(ro)
     print_tree(ro)

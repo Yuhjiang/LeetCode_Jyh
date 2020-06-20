@@ -26,6 +26,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import create_tree, print_tree
+    from problems.utils import create_tree
+
     t = create_tree([1, None, 2, 3, None, None])
     print(Solution().inorderTraversal(t))

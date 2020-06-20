@@ -35,7 +35,7 @@ class NewSolution:
 
 
 if __name__ == '__main__':
-    from utils import print_list, create_list
+    from problems.utils import print_list, create_list
     head = create_list([1, 2, 3, 4, 5])
 
     s = NewSolution()

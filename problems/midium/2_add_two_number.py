@@ -34,7 +34,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import print_list, create_list
+    from problems.utils import print_list, create_list
     l1 = create_list([1])
     l2 = create_list([9])
     print_list(Solution().addTwoNumbers(l1, l2))

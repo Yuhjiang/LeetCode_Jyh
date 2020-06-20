@@ -34,7 +34,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import create_tree
+    from problems.utils import create_tree
     # t = create_tree([3, 9, 20, None, None, 15, 7])
     t = create_tree([3, 9, None, None, None])
     print(Solution().levelOrder(t))

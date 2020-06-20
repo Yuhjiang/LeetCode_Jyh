@@ -30,5 +30,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import print_tree
+    from problems.utils import print_tree
     print_tree(Solution().buildTree([3,9,20,15,7], [9,3,15,20,7]))

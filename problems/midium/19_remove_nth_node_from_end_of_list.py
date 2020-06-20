@@ -47,7 +47,7 @@ class NewSolution:
 
 
 if __name__ == '__main__':
-    from utils import create_list, print_list
+    from problems.utils import create_list, print_list
     l = create_list([1, 2, 3, 4, 5])
     print_list(NewSolution().removeNthFromEnd(l, 5))
     pass

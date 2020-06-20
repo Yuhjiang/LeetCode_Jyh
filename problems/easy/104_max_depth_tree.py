@@ -40,6 +40,6 @@ class NewSolution:
 
 
 if __name__ == '__main__':
-    from utils import create_tree, print_tree
+    from problems.utils import create_tree, print_tree
     tree = create_tree([3,9,20, None, None,15,7])
     print_tree(tree)

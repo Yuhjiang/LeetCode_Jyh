@@ -43,7 +43,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import BuildTree
+    from problems.utils import BuildTree
     # tree = BuildTree().buildTree([3, 5, 6, 2, 7, 4, 1, 0, 8],
     #                              [6, 5, 7, 2, 4, 3, 0, 1, 8])
     tree = BuildTree().buildTree([-1, 0, -2, 8, 4, 3],

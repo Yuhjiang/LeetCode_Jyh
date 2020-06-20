@@ -40,7 +40,7 @@ class NewSolution:
 
 
 if __name__ == '__main__':
-    from utils import print_tree
+    from problems.utils import print_tree
     root = TreeNode(4)
     root.left = TreeNode(2)
     root.right = TreeNode(7)

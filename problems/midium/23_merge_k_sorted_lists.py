@@ -89,7 +89,7 @@ class QueueSolution:
 
 
 if __name__ == '__main__':
-    from utils import create_list, print_list
+    from problems.utils import create_list, print_list
     # listss = [
     #     create_list([1, 4, 5]),
     #     create_list([1, 3, 4]),

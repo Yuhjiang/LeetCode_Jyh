@@ -89,6 +89,6 @@ class NewSolution:
 
 
 if __name__ == '__main__':
-    from utils import create_list, print_list
+    from problems.utils import create_list, print_list
     # print_list(NewSolution().sortList(create_list([-1, 5, 3, 4, 0])))
     print_list(NewSolution().sortList(create_list([4,2,1,3])))

@@ -28,7 +28,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import create_tree
     # root = create_tree([10, 5, 15, None, None, 6, 20])
     root = TreeNode(1)
     root.left = TreeNode(1)
