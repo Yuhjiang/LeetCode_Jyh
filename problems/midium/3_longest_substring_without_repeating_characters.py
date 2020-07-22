@@ -14,5 +14,29 @@ class Solution:
         return max_length
 
 
+class NewSolution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:
+            return 0
+        memo = {}
+        max_len = 0
+        left, right = 0, 0
+
+        while right < len(s):
+            if s[right] not in memo:
+                memo[s[right]] = right
+            else:
+                left = max(memo[s[right]] + 1, left)
+                memo[s[right]] = right
+
+            max_len = max(max_len, right - left + 1)
+            right += 1
+
+        return max_len
+
+
 if __name__ == '__main__':
-    print(Solution().lengthOfLongestSubstring('pwwkew'))
+    print(NewSolution().lengthOfLongestSubstring('pwwkew'))
+    print(NewSolution().lengthOfLongestSubstring("abcabcbb"))
+    print(NewSolution().lengthOfLongestSubstring("bbbbb"))
+    print(NewSolution().lengthOfLongestSubstring("tmmzuxt"))
